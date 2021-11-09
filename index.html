@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividades UHS EVN401 FW UTL</title>
+    <link rel="stylesheet" href="css/ejs3.css" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <body background="img/javascript_logo3.png">
+    <header>
+        <h1><a href="#">Actividades Frameworks</a></h1>
+    </header>
+    <section class="row container-fluid" id="todo">
+        <aside id="lateral" class="col-sm-3">
+            <label for="temas" id="menu">Menú de Navegación</label>
+            <select name="temas" id="temas">
+                <option value="bienv" default>Seleccione uno...</option>
+                <option value="cajas">Cajas</option>
+                <option value="cuest">Cuestionario</option>
+                <option value="nodos">Reservación de Mesas</option>
+                <option value="tarjeta_fel">Tajerta de Felicitación</option>
+                <option value="article_vue">Iniciando con Vue.js</option>
+                <option value="article_vue2">Prop. Computadas</option>
+                <option value="article_vue3">Renderizado y Filtros</option>
+                <option value="article_vue4">E-Commerce</option>
+            </select>
+        </aside>  
+        <section id="principal" class="col-sm-9">
+            <div id="bienv" class="bienv">
+                <h1 id="bienv_text">Bienvenido a una Aplicación Web de Javascript</h1>
+                <h2 id="bienv_text">Uriel Hernández Santamaría EVN401</h2>
+                <h2 id="bienv_text">Mtra. Anahí Montserrat Torres Tinoco</h2>
+                <h2 id="bienv_text">Materia: Frameworks</h2><br>
+                <img src="img/utllogo.png" alt="utl_logo" id="utl_logo">
+            </div>
+            <article id="cajas" class="contenedor">
+                <h3>Elige el Número de Cajas y su Estilo</h3></br>
+                <input type="text" id="numcaj" placeholder="Introduce el Número"/>
+                <p></br></p>
+                <label for="colorcaj">Seleccione un Color</label>
+                <select name="colorcaj" id="colorcaj">
+                    <option value="ro">Rojo</option>
+                    <option value="az">Azul</option>
+                    <option value="am">Amarillo</option>
+                    <option value="ve">Verde</option>
+                    <option value="vi">Violeta</option>
+                </select>
+                <label for="tipoborde">Seleccione un Borde</label>
+                <select name="tipoborde" id="tipoborde">
+                    <option value="so">Solido</option>
+                    <option value="pu">Punteado</option>
+                    <option value="li">Lineado</option>
+                    <option value="do">Doble</option>
+                </select> 
+                <input type="button" value="Mostrar" onClick="mostrarCajas()">
+                <p></br></p>
+                <div class="fluid-container">
+                    <p id="mostrarcajas"></p>
+                </div>
+            </article>
+            <article id="cuest" class="contenedor">
+                <div id="preguntas_encuesta">
+                    <h3>Conteste esta breve encuesta sobre Videojuegos</h3><br>
+                    <label for="resp_1" id="preg_1">1)¿Qué tipo de videojuegos prefiere?</label>
+                        <select name="resp_1" id="resp_1">
+                            <option value="de Guerra">Guerra</option>
+                            <option value="de Fantasía">Fantasía</option>
+                            <option value="Deportivos">Deportivo</option>
+                        </select><br><br>
+                    <label for="resp_2" id="preg_2">2)¿Cuántas horas a la semana juega videojuegos?</label>
+                        <select name="resp_2" id="resp_2">
+                            <option value="de 3 a 5 hrs.">3 a 5 hrs.</option>
+                            <option value="de 5 a 10 hrs.">5 a 10 hrs.</option>
+                            <option value="de 10 a 15 hrs.">10 a 15 hrs.</option>
+                        </select><br><br>
+                    <label for="resp_3" id="preg_3">3)¿Qué sistema de videojuegos prefiere?</label>
+                        <select name="resp_3" id="resp_3">
+                            <option value="Playstation">Playstation</option>
+                            <option value="Xbox">Xbox</option>
+                            <option value="Nintendo">Nintendo</option>
+                        </select><br><br>
+                    <label for="resp_4" id="preg_4">4)¿Con quién prefiere jugar videojuegos?</label>
+                        <select name="resp_4" id="resp_4">
+                            <option value="En solitario">En solitario</option>
+                            <option value="En cooperativo local">En cooperativo local</option>
+                            <option value="En cooperativo online">En cooperativo online</option>
+                        </select><br><br>
+                    <label for="resp_5" id="preg_5">5)¿Cuánto dinero gasta al mes en videojuegos?</label>
+                        <select name="resp_5" id="resp_5">
+                            <option value="de $100 a $300 MXN.">de $100 a $300 MXN.</option>
+                            <option value="de $300 a $500 MXN.">de $300 a $500 MXN.</option>
+                            <option value="de $500 a $1000 MXN.">de $500 a $1000 MXN.</option>
+                        </select><br><br>
+                    <input type="button" value="Mostrar Resultados" onClick="mostrarResultados()">
+                </div>
+                <div id="mostrarresultados" class="fluid-container">
+                    <h3 id="titulo_resp"></h3><br>
+                    <div id="pr1"></div><br>
+                    <div id="pr2"></div><br>
+                    <div id="pr3"></div><br>
+                    <div id="pr4"></div><br>
+                    <div id="pr5"></div><br>
+                </div>
+            </article>
+            <article id="nodos" class="contenedor">
+                <h3>Reservación de mesas</h3>
+                <select id="reservacion">
+                    <option value="0">Seleccione una opción</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+                <p id="mesas"></p>
+                <a id="mostrar">Mostrar</a>
+            </article>
+            <article id="tarjeta_fel" class="contenedor">
+                <h3>Crea tu Tarjeta de Felicitación</h3><br>
+                <h4>Elige el tipo de Tarjeta</h4>
+                <select id="tipo_tar">
+                    <option value="0">Seleccione un tipo</option>
+                    <option value="tar_nav">Tarjeta Navideña</option>
+                    <option value="dia_ind">Día de la Independencia</option>
+                    <option value="dia_prog">Día del Programador</option>
+                </select><br><br>
+                <div id="tar_nav" name="tar_img" class="contenedorImg">
+                    <p>
+                        <img src="img/navidad1.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('navidad1')">
+                        <img src="img/navidad2.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('navidad2')">
+                        <img src="img/navidad3.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('navidad3')">
+                    </p>
+                </div>
+                <div id="dia_ind" name="tar_img" class="contenedorImg">
+                    <p>
+                        <img src="img/d_independencia1.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('d_independencia1')">
+                        <img src="img/d_independencia2.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('d_independencia2')">
+                        <img src="img/d_independencia3.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('d_independencia3')">
+                    </p>
+                </div>
+                <div id="dia_prog" name="tar_img" class="contenedorImg">
+                    <p>
+                        <img src="img/d_programador1.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('d_programador1')">
+                        <img src="img/d_programador2.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('d_programador2')">
+                        <img src="img/d_programador3.png" alt="" style="width: 280px; margin: 10px 10px;" onclick="imgTarjeta('d_programador3')">
+                    </p>
+                </div>
+                <p>Elige un color de fondo:&nbsp;<input type="color" id="bcg_col"></p><br>
+                <h4>Datos de la Tarjeta</h4><br>
+                <input type="text" placeholder="Nombre a quién se envía" id="nombre_envia" style="width: 30rem;" oninput="nombreEnvia()"><input type="color" id="color_nombre_envía" oninput="nombreEnvia()"><br><br>
+                <input type="text" placeholder="Saludo" id="saludo" style="width: 30rem;" oninput="saludoTexto()"><input type="color" id="color_saludo" oninput="saludoTexto()"><br><br>
+                <form>
+                    <textarea name="cuerpo_tex" id="cuerpo_tex" cols="50" rows="8" placeholder="Capture el cuerpo del mensaje" oninput="cuerpoTexto()"></textarea>
+                    <input type="color" id="color_cuerpo_tex" oninput="cuerpoTexto()">
+                </form>
+                <h3>Vista Previa</h3>
+                <div id="VistaPrevia" class="VistaPrevia">
+                    <div>
+                        <div id="nombre_envia_caja">
+                            <p id="nombre_envia_texto"></p>
+                        </div>
+                        <div id="saludo_texto_caja">
+                            <p id="saludo_texto"></p>
+                        </div>
+                        <div id="cuerpo_texto_caja">
+                            <p id="cuerpo_texto"></p>
+                        </div>
+                        <div id="Vista_Previa_Img">
+                            <img src="img/fondo.png" alt="" id="Vista_Previa" style="width: 750px; height: 530px; margin: 47px 10px;">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a id="mostrar_tarfel">Generar Tarjeta</a>
+                </div>
+            </article>
+            <article id="article_vue" class="contenedor">
+                    <h3>¿Te gusta programar?</h3>
+                    <input type="radio" name="preg_1" v-model="preg_1" value="Si" @click="validar_preg1()">Si
+                    <input type="radio" name="preg_1" v-model="preg_1" value="No" @click="validar_preg1()">No
+                    <span v-show="estado1">
+                        <h3>¿Cuántos años llevas programando?</h3>
+                        <input type="text" v-model.number="anios_prog" @keyup="validaranios()" @keydown="validaranios()" />
+                    </span>
+                    <span v-if="estado2">
+                        <h3>¿Qué te motiva a programar?</h3>
+                        <textarea name="exp-prog" v-model="motv_prog" cols="80" rows="1"></textarea>
+                    </span>
+                    <span v-if="estado3">
+                        <h3>Cuentanos tu experiencia programando</h3>
+                        <textarea name="exp-prog" v-model="exp_prog" cols="80" rows="1"></textarea>
+                        <h3>¿Cuántos lenguajes de programación conoces? Captura uno a uno</h3>
+                        <input type="text" v-model="lng_prog" @keyup.enter="agregar_Lng()"/>
+                        <button @click="agregar_Lng()">Agregar Lenguaje</button>
+                        <ul>
+                            <li v-for="(lng,index) in lngs_prog":key="index">{{lng}}</li>
+                        </ul>
+                    </span>
+                    <span v-if="estado0">
+                        <h3>Gracias por Apoyar</h3>
+                    </span>
+                    <p><button @click="resultados()">Mostrar Resultados</button></p>
+                    <span v-if="resultados_block1">
+                        <p>Te gusta programar: {{preg_1}}</p>
+                        <p>¿Cuántos años llevas programando?: {{anios_prog}}</p>
+                    </span>
+                    <span v-if="resultados_block2">
+                        <p>¿Qué te motiva a programar?:</p> 
+                        <p>{{motv_prog}}</p>
+                    </span>
+                    <span v-if="resultados_block3">
+                        <p>Cuentanos tu experiencia programando:</p> 
+                        <p>{{exp_prog}}</p>
+                        <p>Los lenguajes de programación que conoces son:</p>
+                        <p><ul>
+                            <li v-for="(lng,index) in lngs_prog":key="index">{{lng}}</li>
+                        </ul></p>
+                    </span>
+            </article>
+            <article id="article_vue2" class="contenedor">
+                <img src="img/logo_gym.png" style="width: 45%;">
+                <table class="table table-info table-hover">
+                    <tr>
+                        <th>Cantidad</th>
+                        <th>Articulo</th>
+                        <th>Costo Unitario</th>
+                        <th>Costo Total/Articulo</th>
+                    </tr>
+                    <tr v-for="item in articulos">
+                        <td><input type="number" v-model="item.cant"></td>
+                        <td><input type="text" v-model="item.nombre"></td>
+                        <td><input type="number" v-model="item.precio_unit"></td>
+                        <td>${{calculoPrecioItems(item)}}</td>
+                    </tr>
+                </table>
+                <p><button @click="agregarArt()" class="btn btn-outline-dark">Añadir Articulo</button></p>
+                <div class="bg-primary">
+                    <h3 class="text-white">Subtotal: ${{Subtotal}}</h3>
+                    <h3 class="text-white">Iva: ${{Iva}}</h3>
+                    <h3 class="text-white">Total: ${{TotalPrecio}}</h3>
+                </div>
+            </article>
+            <article id="article_vue3" class="contenedor">
+                <div class="container text-center">
+                    <section id="seccion_cafe">
+                        <div id="article_bebidas">
+                                <h1>Cafetería Cubic World</h1>
+                                <h3>Menú de Bebidas</h3>
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <input type="search" v-model="busqueda_x_nomb" placeholder="Buscar Bebida por Nombre" style="width: 280px;" @click="show=!show">
+                                        <ul class="list-unstyled text-center">
+                                            <li v-for="item in buscarBebida" >
+                                            <p>{{item.vig}} - {{item.bebida}} - {{item.ing}} - {{item.tam}} - {{item.precio}}</p>
+                                        </li>
+                                        </ul>
+                                        <transition name="bounce">
+                                            <p v-if="show"><img src="img/logo1.jpg"></p>
+                                        </transition>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="container-fluid">
+                                        <input type="search" v-model="busqueda_x_prec" placeholder="Buscar Bebida por Precio" style="width: 250px;" @click="show2=!show2">
+                                        <ul class="list-unstyled text-center">
+                                            <li v-for="item in preciosBebidas" >
+                                                <p>{{item.vig}} - {{item.bebida}} - {{item.ing}} - {{item.tam}} - {{item.precio}}</p>
+                                            </li>
+                                        </ul>
+                                        <transition name="slide-fade">
+                                            <p v-if="show2">
+                                            <img src="img/tipos-de-cafe.jpg" style="width: 30%;">
+                                            </p>
+                                        </transition>
+                                    </div>
+                                </div>
+                        </div>
+                        <div id="article_pedido">
+                            <h4 class="text-white bg-dark">Confirma tu Pedido</h4>
+                            <table class="table table-bordered table-hover">
+                                <tr>
+                                    <th>Cantidad</th>
+                                    <th>Bebida</th>
+                                    <th>Precio</th>
+                                    <th>Costo Total/Articulo</th>
+                                </tr>
+                                <tr v-for="item in articulos">
+                                    <td><input type="number" v-model="item.cant"></td>
+                                    <td><input type="text" v-model="item.nombre"></td>
+                                    <td><input type="number" v-model="item.precio_unit" disabled></td>
+                                    <td>${{calculoPrecioItems(item)}}</td>
+                                </tr>
+                            </table>
+                            <div class="bg-dark">
+                                <h3 class="text-white">Total: ${{TotalPrecio}}</h3><br>
+                                <button class="bg-secondary"><h4 class="text-white">Pagar</h4></button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </article>
+            <article id="article_vue4" class="contenedor">
+                <section id="cont">
+                    <div class="container-fluid text-center">
+                        <p><h1>Agencia de Viajes "Ida y Vuelta"</h1></p>
+                        <p><h4>Viajes "Ida y Vuelta" te invita a conocer los mejores lugares turísticos del
+                            estado de Guanuajuato con promociones especiales en paquetes ¡¡¡hasta del 25% de
+                            descuento este buen fin del Jueves 11 al Lunes 16 de Noviembre!!!.</h4></p>
+                        <p><h4>Viaja con toda tu familia o amigos y sumergete en la historia de México y prueba la deliciosa Gatronomia del Estado,
+                            así como Increíbles Paisajes Naturales y Deportes Extremos.</h4></p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2 p-3 columna">
+                            <button class="btn btn-primary" @click="mostrarL = true">León</button>
+                            <button class="btn btn-success" @click="mostrarSdL = true">Sierra de Lobos</button>
+                            <button class="btn btn-warning"@click="mostrarG = true">Guanuajuato</button>
+                            <button class="btn btn-danger" @click="mostrarVdS = true">Valle de Santiago</button>
+                            <button class="btn btn-secondary" @click="mostrarSdA = true">San Miguel de Allende</button>
+                            
+                            <alerta @ocultar="mostrarL = false" v-show="mostrarL" tipo="alerta--info" posicion="alerta--arriba-izquierda">
+                                <template slot="header">
+                                    León
+                                </template>
+                                <template>
+                                    Aquí puedes pasar un fin de semana explorando los vestigios coloniales del centro histórico, enamorándote de los sabores de su gastronomía, volando en globo aerostático, haciendo negocios o simplemente empapándote de cultura mientras recorres sus pequeñas calles y modernos corredores peatonales.
+                                    Una parada obligada en tu visita a esta joya del Bajío es un puesto de guacamayas: se trata de una torta rellena de chicharrón de cerdo bañada en salsa, toda una delicia que forzosamente tienes que probar por lo menos una vez en la vida.
+                                </template>
+                                <template slot="footer">
+                                    <img src="img/leon.jpg" alt="" style="width: 80%;">
+                                </template>
+                            </alerta>
+                            <alerta @ocultar="mostrarSdL = false" v-show="mostrarSdL" tipo="alerta--exito" posicion="alerta--arriba-derecha">
+                                <template slot="header">
+                                    Sierra de Lobos
+                                </template>
+                                <template>
+                                    Está área natural boscosa tiene un clima templado húmedo que te permite realizar una serie de actividades al aire libre que van desde acampada si te gusta la tranquilidad, senderismo si lo tuyo es la caminata y explorar la zona, o si te gustan los deportes extremos rodar en bicicleta de montaña es la mejor opción para ti, esto por mencionar solo algunas de las actividades que puedes hacer solo o en grupo 
+                                </template>
+                                <template slot="footer">
+                                    <img src="img/sierradelobos.jpg" alt="" style="width: 100%;">
+                                </template>
+                            </alerta>
+                            <alerta @ocultar="mostrarG = false" v-show="mostrarG" tipo="alerta--advertencia" posicion="alerta--abajo-derecha">
+                                <template slot="header">
+                                    Guanuajuato
+                                </template>
+                                <template>
+                                    La ciudad de Guanajuato es una ciudad universitaria con una intensa vida cultural cuya culminación es el Festival Internacional Cervantino, la reunión artística más importante de México y Latinoamérica, fue declarada como Patrimonio de la Humanidad en el año de 1988 como bien cultural bajo el nombre "Ciudad histórica de Guanajuato y minas adyacentes" patrimonio de la humanidad.
+                                </template>
+                                <template slot="footer">
+                                    <img src="img/guanajuato.jpg" alt="" style="width: 100%;">
+                                </template>
+                            </alerta>
+                            <alerta @ocultar="mostrarVdS = false" v-show="mostrarVdS" tipo="alerta--error" posicion="alerta--abajo-izquierda" frase="Corregir" :listado="tipos">
+                                <template slot="header">
+                                    Valle de Santiago
+                                </template>
+                                <template>
+                                    El territorio Municipal de valle de Santiago, tiene un área natural Protegida llamada "LA REGION VOLCÁNICA SIETE LUMINARIAS", declarada en la categoría de monumento natural, presenta características fisiográficas únicas en el Estado, que consisten en un conjunto de cráteres volcánicos inactivos, con bordes bajos, abruptos y centro plano de hasta 1 km.
+                                </template>
+                                <template slot="footer" slot-scope="mensaje">
+                                    <img src="img/valledesantiago.jpg" alt="" width="100%">
+                                </template>
+                            </alerta>
+                            <alerta @ocultar="mostrarSdA = false" v-show="mostrarSdA" tipo="alerta--dark" posicion="alerta--abajo-centro">
+                                <template slot="header">
+                                    San Miguel de Allende
+                                </template>
+                                <template>
+                                    En el 2008 fue declarada como Patrimonio de la Humanidad por la UNESCO. Su riqueza histórica, cultural y tradicional, lo avalan.Camina por sus calles y admira su arquitectura colonial.Ve a la Parroquia de San Miguel Arcángel, admira su arquitectura neo gótica tallada en cantera rosa. Date una vuelta por el Mercado de Artesanías y en el andador Lucas Balderas.Échate un clavado al pasado visitando el ex Palacio Municipal.
+                                </template>
+                                <template slot="footer" slot-scope="mensaje">
+                                    <img src="img/sanmigueldeallende.jpg" alt="" width="80%">
+                                </template>
+                            </alerta>
+                        </div>
+                        <div>
+                            <img src="img/Mapa_Gto_Estado.jpg" alt="" width="100%">
+                        </div>
+                        <div class="container-fluid">
+                            <p><h4>¿Quieres más información sobre otros lugares turísticos?</h4></p>
+                            <p><h4>Registra tu correo electrónico y mandanos tus comentarios</h4></p>
+                            <p>Correo Electrónico: <input type="text" name="" id="" v-model="correo"></p>
+                            <p><textarea name="" id="" cols="50" rows="4" placeholder="Comentarios"></textarea></p>
+                            <p>Incluye una lista de los lugares que te gustaría Visitar</p>
+                            <input type="text" v-model="lugar" @keyup.enter="agregar()"/>
+                            <button @click="agregar()">Agregar Lugar</button>
+                            <ul>
+                                <li class="list-unstyled" v-for="(lug,index) in lugares":key="index">{{lug}}</li>
+                            </ul>
+                            <button @click="mostrarAgrad()">Enviar Comentario</button>
+                            <span v-if='estado'>
+                                <h4>Gracias por enviar tus comentarios responderemos en breve a tu correo: {{correo}}</h4>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+                <template id="mensajeAlerta">
+                    <article class="alerta" :class="[tipo, posicion]">
+                        <h3 class="alerta__header">
+                            <button class="btn btn-dark" @click="ocultarMensaje()">X</button>
+                            <slot name="header" ]>
+                            </slot>
+                        </h3>
+                        <span>
+                            <slot>
+                            </slot>
+                        </span>
+                        <p class="alerta__contenido">
+                            <slot name="datos" v-for="informacion in listado" :nombre="informacion"></slot>
+                        </p>
+                        <span class="alerta__footer">
+                            <slot name="footer" :tipo="alerta"></slot>
+                        </span>
+                    </article>
+                </template>
+            </article>
+        </section>
+    </section>
+<script src="js/funcionalidad.js"></script>
+<footer>
+   <h5>Realizado Por: Uriel Hernández Santamaría EVN401 UTL</h5> 
+</footer>
+</body>
+</html>
+
